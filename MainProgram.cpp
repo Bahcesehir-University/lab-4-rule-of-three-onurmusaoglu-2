@@ -122,11 +122,12 @@ public:
         //   7. Return *this
         g_assignmentCount++
         if(this != &other){
-            delete[] m_data;
-            m_length = other.getLength();
-            m_data = new char[m_length + 1];
-            strcpy(m_data, other.getData());
+            return *this;
         }
+        delete[m_data];
+        m_length = other.m_length;
+        m_data = new char[m_length + 1];
+        strcpy(m_data, other.m_data);
         return *this;
     }
 
